@@ -19,3 +19,18 @@ def create(request):
     content = request.POST.get('content')
     Post.objects.create(title=title, content=content)
     return render(request, 'create.html')
+
+def detail(request, board_id):
+    
+    post = Post.objects.get(id=board_id)
+    context = {
+        'post': post,
+    }
+    return render(request, 'detail.html', context)
+
+def delete(request, board_id):
+
+    post = Post.objects.get(id=board_id)
+    post.delete()
+    return render(request, 'delete.html')
+

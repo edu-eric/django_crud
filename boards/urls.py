@@ -4,5 +4,7 @@ from boards import views
 urlpatterns = [
     path('', views.index),
     path('new/', views.new),
-    path('create/', views.create),  
+    path('create/', views.create),
+    path('detail/<int:board_id>/', views.detail),
+    path('delete/<int:board_id>/', views.delete),  
 ]
