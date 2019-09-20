@@ -14,7 +14,7 @@
     <input type="submit" value="댓글 작성하기">
 </form>
 <ul>
-    {% for comment in comments %}
+    {% for comment in post.comment_set.all %}
         <li>
             이름: {{comment.name}}<br>
             내용: {{comment.content}}<br>
