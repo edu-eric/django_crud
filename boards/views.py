@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post, Comment
+from .forms import PostForm
 
 # Create your views here.
 def index(request):
@@ -11,14 +12,22 @@ def index(request):
     return render(request, 'index.html', context)
 
 def new(request):
-    return render(request, 'new.html')
+    
+    context = {
+        'PostForm': PostForm,
+    }
+    return render(request, 'new.html', context)
 
 def create(request):
 
-    title = request.POST.get('title')
-    content = request.POST.get('content')
-    Post.objects.create(title=title, content=content)
-    return render(request, 'create.html')
+    new_post = PostForm(request.POST)
+    if new_post.is_valid():
+        title = new_post.cleaned_data.get("title")
+        content = new_post.cleaned_data.get("content")
+        Post.objects.create(title=title, content=content)
+        return render(request, 'create.html')
+    else:
+        return redirect('/boards/')
 
 def detail(request, board_id):
     
