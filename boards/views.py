@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Post, Comment
-from .forms import PostForm
+from .forms import PostForm, CommentForm
 
 # Create your views here.
 def index(request):
