@@ -5,4 +5,13 @@
 <a href="/boards/delete/{{post.id}}/">게시글 삭제하기</a>
 <a href="/boards/edit/{{post.id}}/">게시글 수정하기</a>
 
+<!--댓글 목록-->
+<h2>댓글 목록</h2>
+<ul>
+    {% for comment in comments %}
+        이름: {{comment.name}}<br>
+        내용: {{comment.content}}
+    {% endfor %}
+</ul>
+
 <a href="/boards/">게시판 메인으로 가기</a>

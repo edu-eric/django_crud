@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import Post, Comment
 
 # Create your views here.
 def index(request):
@@ -23,8 +23,10 @@ def create(request):
 def detail(request, board_id):
     
     post = Post.objects.get(id=board_id)
+    comments = post.comment_set.all()
     context = {
         'post': post,
+        'comments': comments,
     }
     return render(request, 'detail.html', context)
 
@@ -51,3 +53,6 @@ def update(request, board_id):
     post.content = new_content
     post.save()
     return render(request, 'update.html')
+
+def create_comment(request, board_id):
+    pass
