@@ -61,3 +61,9 @@ def create_comment(request, board_id):
     content = request.POST.get("content")
     new_comment = Comment.objects.create(name=name, content=content, post=post)
     return redirect('/boards/')
+
+def delete_comment(request, comment_id):
+    
+    comment = Comment.objects.get(id=comment_id)
+    comment.delete()
+    return redirect('/boards/')
