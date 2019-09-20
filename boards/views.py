@@ -23,10 +23,8 @@ def create(request):
 def detail(request, board_id):
     
     post = Post.objects.get(id=board_id)
-    comments = post.comment_set.all()
     context = {
         'post': post,
-        'comments': comments,
     }
     return render(request, 'detail.html', context)
 
