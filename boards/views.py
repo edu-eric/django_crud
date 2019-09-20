@@ -34,3 +34,20 @@ def delete(request, board_id):
     post.delete()
     return render(request, 'delete.html')
 
+def edit(request, board_id):
+
+    post = Post.objects.get(id=board_id)
+    context = {
+        'post': post,
+    }
+    return render(request, 'edit.html', context)
+
+def update(request, board_id):
+
+    post = Post.objects.get(id=board_id)
+    new_title = request.POST.get("title")
+    new_content = request.POST.get("content")
+    post.title = new_title
+    post.content = new_content
+    post.save()
+    return render(request, 'update.html')
