@@ -67,3 +67,18 @@ def delete_comment(request, comment_id):
     comment = Comment.objects.get(id=comment_id)
     comment.delete()
     return redirect('/boards/')
+
+def edit_comment(request, comment_id):
+
+    comment = Comment.objects.get(id=comment_id)
+    return render(request, 'edit_comment.html', {'comment': comment})
+
+def update_comment(request, comment_id):
+
+    comment = Comment.objects.get(id=comment_id)
+    new_name = request.POST.get("name")
+    new_content = request.POST.get("content")
+    comment.name = new_name
+    comment.content = new_content
+    comment.save()
+    return redirect('/boards/')

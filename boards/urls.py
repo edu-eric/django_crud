@@ -13,4 +13,6 @@ urlpatterns = [
     # 댓글 관련 URL
     path('comment/create/<int:board_id>/', views.create_comment),
     path('comment/delete/<int:comment_id>/', views.delete_comment),
+    path('comment/edit/<int:comment_id>/', views.edit_comment),
+    path('comment/update/<int:comment_id>/', views.update_comment),
 ]
