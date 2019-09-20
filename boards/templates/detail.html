@@ -7,10 +7,18 @@
 
 <!--댓글 목록-->
 <h2>댓글 목록</h2>
+<form action="/boards/comment/create/{{post.id}}/" method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="name">
+    <input type="text" name="content" placeholder="content">
+    <input type="submit" value="댓글 작성하기">
+</form>
 <ul>
     {% for comment in comments %}
-        이름: {{comment.name}}<br>
-        내용: {{comment.content}}
+        <li>
+            이름: {{comment.name}}<br>
+            내용: {{comment.content}}
+        </li>
     {% endfor %}
 </ul>
 

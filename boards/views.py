@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Post, Comment
 
 # Create your views here.
@@ -55,4 +55,9 @@ def update(request, board_id):
     return render(request, 'update.html')
 
 def create_comment(request, board_id):
-    pass
+    
+    post = Post.objects.get(id=board_id)
+    name = request.POST.get("name")
+    content = request.POST.get("content")
+    new_comment = Comment.objects.create(name=name, content=content, post=post)
+    return redirect('/boards/')
