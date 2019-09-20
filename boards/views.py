@@ -6,7 +6,7 @@ def index(request):
 
     posts = Post.objects.all()
     context = {
-        'posts': post,
+        'posts': posts,
     }
     return render(request, 'index.html', context)
 
