@@ -6,7 +6,7 @@
             글번호: {{post.id}}<br>
             제목: {{post.title}}<br>
             내용: {{post.content}}
-            <a href="/boards/detail/{{post.id}}">상세 글 보기</a>
+            <a href="{{post.get_absolute_url}}">상세 글 보기</a>
         </li>
         <br>
     {% endfor %}
