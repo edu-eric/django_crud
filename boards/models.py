@@ -12,7 +12,7 @@ class Post(models.Model):
         return f'{self.title} {self.content}'
 
     def get_absolute_url(self):
-        return reverse("boards:detail", kwargs={"board_id": self.pk})
+        return reverse('boards:detail', kwargs={'board_id': self.pk})
     
 class Comment(models.Model):
     name = models.CharField(max_length=10)

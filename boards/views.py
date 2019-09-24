@@ -22,8 +22,8 @@ def create(request):
 
     new_post = PostForm(request.POST)
     if new_post.is_valid():
-        title = new_post.cleaned_data.get("title")
-        content = new_post.cleaned_data.get("content")
+        title = new_post.cleaned_data.get('title')
+        content = new_post.cleaned_data.get('content')
         Post.objects.create(title=title, content=content)
         return render(request, 'create.html')
     else:
@@ -54,8 +54,8 @@ def edit(request, board_id):
 def update(request, board_id):
 
     post = Post.objects.get(id=board_id)
-    new_title = request.POST.get("title")
-    new_content = request.POST.get("content")
+    new_title = request.POST.get('title')
+    new_content = request.POST.get('content')
     post.title = new_title
     post.content = new_content
     post.save()
@@ -64,8 +64,8 @@ def update(request, board_id):
 def create_comment(request, board_id):
     
     post = Post.objects.get(id=board_id)
-    name = request.POST.get("name")
-    content = request.POST.get("content")
+    name = request.POST.get('name')
+    content = request.POST.get('content')
     new_comment = Comment.objects.create(name=name, content=content, post=post)
     return redirect('/boards/')
 
@@ -83,8 +83,8 @@ def edit_comment(request, comment_id):
 def update_comment(request, comment_id):
     
     comment = Comment.objects.get(id=comment_id)
-    new_name = request.POST.get("name")
-    new_content = request.POST.get("content")
+    new_name = request.POST.get('name')
+    new_content = request.POST.get('content')
     comment.name = new_name
     comment.content = new_content
     comment.save()

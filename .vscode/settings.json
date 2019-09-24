@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "myvenv/bin/python3",
-    "emmet.includeLanguages": {"django-html": "html"},
+    'python.pythonPath': 'myvenv/bin/python3',
+    'emmet.includeLanguages': {'django-html': 'html'},
 }

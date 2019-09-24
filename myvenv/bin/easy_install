@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/eric/HPHK/HPHK/강의자료 by Me/[SERIES] 강의 코드 with git - 실전/myvenv/bin/python" "$0" "$@"
+'''exec' '/Users/eric/HPHK/HPHK/강의자료 by Me/[SERIES] 강의 코드 with git - 실전/myvenv/bin/python' '$0' '$@'
 ' '''
 # -*- coding: utf-8 -*-
 import re

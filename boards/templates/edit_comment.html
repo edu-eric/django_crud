@@ -1,8 +1,8 @@
 <h1>댓글 수정 페이지입니다.</h1>
 
-<form action="/boards/comment/update/{{comment.id}}/" method="POST">
+<form action='/boards/comment/update/{{comment.id}}/' method='POST'>
     {% csrf_token %}
-    <input type="text" name="name" placeholder="{{comment.name}}">
-    <input type="text" name="content" placeholder="{{comment.content}}">
-    <input type="submit" value="댓글 수정하기!">
+    <input type='text' name='name' placeholder='{{comment.name}}'>
+    <input type='text' name='content' placeholder='{{comment.content}}'>
+    <input type='submit' value='댓글 수정하기!'>
 </form>
